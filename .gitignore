@@ -1,0 +1,11 @@
+/node_modules
+npm-debug.log
+.DS_Store
+/*.env
+/*.json
+!/package.json
+!/package-lock.json
+/*cache
+/google*.html
+/README.md
+/documentation-imgs
