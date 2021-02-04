@@ -14,16 +14,23 @@
             Please contact the troop webmaster.
           </p>
         <% } else { %>
-          <% albums.albums.forEach((album) => { %>
-            <% if (album.title !== 'Home Page') { %>
-              <a href="album-photos?albumId=<%= album.id %>&albumTitle=<%= album.title %>">
-                <figure>
-                  <img src="<%= album.coverPhotoBaseUrl %>"/>
-                  <figcaption><%= album.title %></figcaption>
-                </figure>
-              </a>
-            <% } %>
-          <% }); %>
+          <ul class="album">
+            <% albums.albums.forEach((album) => { %>
+              <% if (album.title !== 'Home Page') { %>
+                <li>
+                  <figure>
+                    <a href="album-photos?albumId=<%= album.id %>&albumTitle=<%= album.title %>">
+                      <img src="<%= album.coverPhotoBaseUrl %>"/></a>
+                    <figcaption>
+                      <a href="album-photos?albumId=<%= album.id %>&albumTitle=<%= album.title %>">
+                        <%= album.title %>
+                      </a>
+                    </figcaption>
+                  </figure>
+                </li>
+              <% } %>
+            <% }); %>
+          </ul>
         <% } %>
       </section>
     </main>

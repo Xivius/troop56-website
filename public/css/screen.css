@@ -4,7 +4,7 @@
 */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
 
-/* general CSS */
+/* General CSS */
 html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  font-family: roboto, helvetica, sans-serif;
+  font-family: 'Roboto', helvetica, sans-serif;
   margin: 0;
   max-width: 100%;
   overflow-wrap: break-word;
@@ -47,8 +47,12 @@ a:hover {
   color: gold;
 }
 
+.noscroll {
+  overflow: hidden;
+}
 
-/* general header */
+
+/* General Header */
 #header h1 {
   color: #D4AF37; /* metallic gold */
   font-size: 2.5em; /* 48px */
@@ -150,7 +154,7 @@ a:hover {
 }
 
 
-/* home page */
+/* Home Page */
 #home main {
   margin: 0; /* ignore general main tag rule */
 }
@@ -218,7 +222,7 @@ and (min-height: 40.625rem) { /* 1024×650 px */
 }
 
 
-/* activities page */
+/* Activities Page */
 #activities main {
   height: 100vw;
   margin-left: auto;
@@ -253,93 +257,167 @@ and (min-height: 40.625rem) { /* 1024×650 px */
 }
 
 
-/* photos and album-photos pages */
-#album-photos section,
+/* Photos & Album Photos Pages */
 #photos section {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 80em;
-  width: 85vw;
+  margin: 0 0.5em;
 }
 
-#album-photos section h2,
 #photos section h2 {
   color: #D4AF37; /* metallic gold */
-  margin-left: 1em;
+  margin-left: 0.25em;
 }
 
-#photos section a {
-  border-radius: 0.938em; /* 15px */
+#photos ul.album {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+}
+
+#photos ul.album li {
   display: inline-block;
-  margin: 1em;
+  margin: 0.5em;
+  max-width: 20em;
+  min-width: 0;
+  width: calc(100% - 1em);
 }
 
-#album-photos figure,
 #photos figure {
-  border-radius: 0.938em; /* 15px */
-  max-height: 18.750em; /* 300px */
-  max-width: 18.750em; /* 300px */
-}
-
-#album-photos figure:hover {
-  cursor: pointer;
-}
-
-#album-photos figure {
   display: inline-block;
-  margin: 1em 1.5em;
+  width: 100%;
 }
 
-#album-photos figure img,
+#photos figure a {
+  border-radius: 0.938em; /* 15px */
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+}
+
+#photos figure a:hover {
+  text-decoration: underline;
+}
+
 #photos figure img {
   border-radius: 0.938em; /* 15px */
-  margin-bottom: -0.625em; /* 10px */
-  max-height: 100%;
-  max-width: 100%;
+  cursor: pointer;
+  display: block;
+  max-height: 220px;
+  object-fit: cover;
+  overflow: hidden;
+  width: 100%;
 }
 
-#album-photos figcaption,
-#photos figcaption {
-  line-height: 120%;
-  margin-top: 1em;
-}
-
-#album-photos figcaption {
+#photos figure figcaption {
   color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.125em;
+  line-height: 120%;
+  margin-top: 0.5em;
 }
 
-#album-photos figure.overlay {
+#photos figcaption:hover {
+  text-decoration: underline;
+}
+
+#photos .overlay {
   align-items: center;
   background-color: rgba(7, 7, 7, 0.4);
-  border-radius: 0;
+  display: inline-block;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  margin: 0;
-  max-height: 100%;
-  max-width: 100%;
+  justify-content: space-between;
+  /* height: 120vh; */
+  opacity: 0;
+  overflow: auto;
+  padding: 1em 0;
   position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  transition: opacity 1s, visibility 1s;
+  vertical-align: middle;
   visibility: hidden;
 }
 
-#album-photos figure.overlay img {
+#photos .overlay .close {
+  border: none;
+  border-radius: 100%;
+  color: red;
+  font-size: 2.5em;
+  line-height: 58%;
+  opacity: 0.7;
+  padding: 0.025em;
+  position: absolute;
+    right: 0;
+    top: 0;
+  vertical-align: middle;
+}
+
+#photos .overlay .close:hover {
+  opacity: 1;
+}
+
+#photos .overlay figure {
+  align-items: center;
+  border-radius: 0;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(100% - 3em);
+}
+
+#photos .overlay figure img {
   border-radius: 0;
   height: auto;
   max-height: 92.5%;
-  max-width: 90%;
-  width: auto;
 }
 
-#album-photos figure.overlay figcaption {
-  overflow: auto;
+#photos .arrow-key.left {
+  border-radius: 0 3em 3em 0;
+  padding-right: 0.1em;
+}
+
+#photos .arrow-key.right {
+  border-radius: 3em 0 0 3em;
+  padding-left: 0.1em;
+}
+
+#photos .arrow-key {
+  border: none;
+  align-items: center;
+  display: inline-block;
+  display: flex;
+  outline: none;
+  padding: 0;
+  padding-bottom: 0.5em;
+  /* vertical-align: middle; */
+  /* white-space: nowrap; */
+  /* width: 0.625em; */
+  z-index: 1;
+}
+
+#photos .arrow-key span {
+  display: inline-block;
+  font-family: 'Concert One', sans-serif;
+  font-size: 3em;
+  line-height: normal;
+  text-align: center;
+  vertical-align: middle;
+}
+
+@supports (display: grid) {
+  #photos ul.album li {
+    max-width: none;
+  }
+
+  #photos figure img {
+    max-height: none;
+    height: 30vw;
+  }
 }
 
 
-/* contact-us page */
+/* Contact Us Page */
 #contact-us section {
   background-color: #F1F1F1; /* off-white color */
   border-radius: 0.938em; /* 15px */
@@ -374,7 +452,7 @@ and (min-height: 40.625rem) { /* 1024×650 px */
 }
 
 
-/* 404.html */
+/* 404 Page */
 #page-404 h2 {
   font-size: 2em;
   text-align: center;

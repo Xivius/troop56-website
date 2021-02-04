@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" id="album-photos">
+<html lang="en" id="photos">
   <%- include("../partials/head"); %>
 
   <body>
@@ -14,18 +14,29 @@
             Please contact the troop webmaster.
           </p>
         <% } else { %>
-          <% photos.mediaItems.forEach((mediaItem) => { %>
-            <figure>
-              <img src="<%= mediaItem.baseUrl %>"/>
-              <figcaption><%= (mediaItem.description) ? mediaItem.description : mediaItem.filename %></figcaption>
-            </figure>
-          <% }); %>
+          <ul class="album">
+            <% photos.mediaItems.forEach((mediaItem) => { %>
+              <li><figure>
+                <img src="<%= mediaItem.baseUrl %>"/>
+                <figcaption>
+                  <%= (mediaItem.description) ? (
+                  mediaItem.description) : (
+                  mediaItem.filename) %>
+                </figcaption>
+              </figure></li>
+            <% }); %>
+          </ul>
         <% } %>
       </section>
-      <figure class="overlay" aria-hidden="true">
-        <img src="">
-        <figcaption></figcaption>
-      </figure>
+      <div class="overlay" aria-hidden="true">
+        <button class="close">&times;</button>
+        <button class="arrow-key left"><span>&lt;</span></button>
+        <figure>
+          <img src="">
+          <figcaption></figcaption>
+        </figure>
+        <button class="arrow-key right"><span>&gt;</span></button>
+      </div>
     </main>
   </body>
 </html>
