@@ -305,7 +305,7 @@ and (min-height: 40.625rem) { /* 1024×650 px */
   border-radius: 0.938em; /* 15px */
   cursor: pointer;
   display: block;
-  max-height: 220px;
+  max-height: 13.750em;
   object-fit: cover;
   overflow: hidden;
   width: 100%;
@@ -371,8 +371,8 @@ and (min-height: 40.625rem) { /* 1024×650 px */
 
 #photos .overlay figure img {
   border-radius: 0;
-  height: auto;
-  width: 100%;
+  max-height: 85vh;
+  max-width: 90vw;
 }
 
 #photos .arrow-key.left {
@@ -422,9 +422,15 @@ and (min-height: 40.625rem) { /* 1024×650 px */
     max-width: none;
   }
 
-  #photos figure img {
-    max-height: none;
+  #photos ul.album figure img {
     height: 30vw;
+    max-height: none;
+  }
+
+  @media screen and (min-width: 26.563rem) {
+    #photos ul.album figure img {
+      height: 20vw;
+    }
   }
 }
 
