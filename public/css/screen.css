@@ -27,6 +27,11 @@ main {
   margin: 3em auto; /* 48px */
 }
 
+button {
+  cursor: pointer;
+  outline: none;
+}
+
 h2 {
   font-size: xx-large;
   font-weight: bold;
@@ -280,23 +285,23 @@ and (min-height: 40.625rem) { /* 1024×650 px */
   width: calc(100% - 1em);
 }
 
-#photos figure {
+#photos ul.album figure {
   display: inline-block;
   width: 100%;
 }
 
-#photos figure a {
+#photos ul.album figure a {
   border-radius: 0.938em; /* 15px */
   cursor: pointer;
   display: inline-block;
   width: 100%;
 }
 
-#photos figure a:hover {
+#photos ul.album figure a:hover {
   text-decoration: underline;
 }
 
-#photos figure img {
+#photos ul.album figure img {
   border-radius: 0.938em; /* 15px */
   cursor: pointer;
   display: block;
@@ -315,25 +320,23 @@ and (min-height: 40.625rem) { /* 1024×650 px */
   margin-top: 0.5em;
 }
 
-#photos figcaption:hover {
+#photos figure figcaption:hover {
   text-decoration: underline;
 }
 
 #photos .overlay {
-  align-items: center;
   background-color: rgba(7, 7, 7, 0.4);
   display: inline-block;
-  display: flex;
-  justify-content: space-between;
-  /* height: 120vh; */
   opacity: 0;
   overflow: auto;
-  padding: 1em 0;
+  padding-bottom: 2em;
+  padding-top: 3em;
   position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     top: 0;
+  text-align: center;
   transition: opacity 1s, visibility 1s;
   vertical-align: middle;
   visibility: hidden;
@@ -348,8 +351,8 @@ and (min-height: 40.625rem) { /* 1024×650 px */
   opacity: 0.7;
   padding: 0.025em;
   position: absolute;
-    right: 0;
-    top: 0;
+    right: 0.25em;
+    top: 0.25em;
   vertical-align: middle;
 }
 
@@ -369,17 +372,23 @@ and (min-height: 40.625rem) { /* 1024×650 px */
 #photos .overlay figure img {
   border-radius: 0;
   height: auto;
-  max-height: 92.5%;
+  width: 100%;
 }
 
 #photos .arrow-key.left {
   border-radius: 0 3em 3em 0;
   padding-right: 0.1em;
+  position: fixed;
+    left: 0;
+    top: 50%;
 }
 
 #photos .arrow-key.right {
   border-radius: 3em 0 0 3em;
   padding-left: 0.1em;
+  position: fixed;
+    right: 0;
+    top: 50%;
 }
 
 #photos .arrow-key {
@@ -387,13 +396,16 @@ and (min-height: 40.625rem) { /* 1024×650 px */
   align-items: center;
   display: inline-block;
   display: flex;
+  opacity: 0.6;
   outline: none;
   padding: 0;
   padding-bottom: 0.5em;
-  /* vertical-align: middle; */
-  /* white-space: nowrap; */
-  /* width: 0.625em; */
+  transition: opacity 0.35s;
   z-index: 1;
+}
+
+#photos .arrow-key:hover {
+  opacity: 1;
 }
 
 #photos .arrow-key span {

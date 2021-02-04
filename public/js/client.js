@@ -68,9 +68,9 @@ function imageCarousel() {
     document.body.classList = "noscroll";
     currentImg = e.target.parentNode.parentNode;
     if (!currentImg.previousElementSibling) {
-      leftArrow.style.backgroundColor = 'gray';
+      leftArrow.style.visibility = 'hidden';
     } else if (!currentImg.nextElementSibling) {
-      rightArrow.style.backgroundColor = 'gray';
+      rightArrow.style.visibility = 'hidden';
     }
   }
 
@@ -79,30 +79,30 @@ function imageCarousel() {
     overlay.style.opacity = '0';
     overlay.style.visibility = '';
     document.body.classList = "";
-    leftArrow.style.backgroundColor = '';
-    rightArrow.style.backgroundColor = '';
+    leftArrow.style.visibility = '';
+    rightArrow.style.visibility = '';
   }
 
   function leftArrowHandler(e) {
     if (currentImg.previousElementSibling) {
-      rightArrow.style.backgroundColor = '';
+      rightArrow.style.visibility = '';
       currentImg = currentImg.previousElementSibling;
       overlayFigure.children[0].src = currentImg.children[0].children[0].src;
       overlayFigure.children[1].innerHTML = currentImg.children[0].children[1].innerHTML;
       if (!currentImg.previousElementSibling) {
-        leftArrow.style.backgroundColor = 'gray';
+        leftArrow.style.visibility = 'hidden';
       }
     }
   }
 
   function rightArrowHandler(e) {
     if (currentImg.nextElementSibling) {
-      leftArrow.style.backgroundColor = '';
+      leftArrow.style.visibility = '';
       currentImg = currentImg.nextElementSibling;
       overlayFigure.children[0].src = currentImg.children[0].children[0].src;
       overlayFigure.children[1].innerHTML = currentImg.children[0].children[1].innerHTML;
       if (!currentImg.nextElementSibling) {
-        rightArrow.style.backgroundColor = 'gray';
+        rightArrow.style.visibility = 'hidden';
       }
     }
   }
