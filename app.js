@@ -122,7 +122,7 @@ app.get('/album-photos', async (req, res, next) => {
       photos: data
     });
   } else {
-    next();
+    res.redirect("/404");
   }
 });
 app.get('/contact-us', (req, res) => {
