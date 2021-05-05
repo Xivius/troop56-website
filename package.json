@@ -26,7 +26,44 @@
     "googleapis": "^56.0.0",
     "nodemon": "^2.0.4",
     "node-persist": "^3.1.0",
+    "open": "^7.2.0",{
+  "name": "troop56-website",
+  "version": "1.0.0",
+  "description": "Troop 56's website",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon -e js, ejs",
+    "start": "node -r dotenv/config app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xivius/Troop56_Website.git"
+  },
+  "author": "Xivius",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xivius/Troop56_Website/issues"
+  },
+  "homepage": "https://github.com/Xivius/Troop56_Website#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.1.3",
+    "googleapis": "^56.0.0",
+    "node-persist": "^3.1.0",
     "open": "^7.2.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.7"
+  },
+  "engines": {
+    "node": "12.16.3"
+  }
+}
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
