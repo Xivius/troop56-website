@@ -241,4 +241,4 @@ app.use(function(req, res, next) {
   });
 });
 
-app.listen(config.port);
+app.listen(process.env.PORT || config.port);
