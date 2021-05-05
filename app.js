@@ -147,7 +147,10 @@ app.get('/auth/google/callback', async (req, res) => {
   }).catch((err) => {
     res.status(403).send({"403": "Forbidden"});
   });
-
+});
+// Google Site Verification
+app.get('/google31e069fd84619554.html', (req, res) => {
+  res.sendFile('google31e069fd84619554.html');
 });
 
 // Access all albums
